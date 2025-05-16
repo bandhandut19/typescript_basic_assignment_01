@@ -73,3 +73,29 @@ function processValue(value: string | number): number {
 
 const problem_5 = processValue(20);
 console.log(problem_5);
+
+interface Product {
+  name: string;
+  price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length != 0) {
+    let mostExpensiveProduct: Product = products[0];
+    products.forEach((product) =>
+      product.price > mostExpensiveProduct.price
+        ? (mostExpensiveProduct = product)
+        : ""
+    );
+    return mostExpensiveProduct;
+  } else {
+    return null;
+  }
+}
+const products = [
+  { name: "Pen", price: 10 },
+  { name: "Notebook", price: 25 },
+  { name: "Bag", price: 50 },
+];
+const problem_6 = getMostExpensiveProduct(products);
+console.log(problem_6);
